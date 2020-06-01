@@ -68,7 +68,7 @@ class Main:
     def main(self):
 
         host = "localhost"
-        port = 20000     
+        port = 10000     
         
         signal.signal(signal.SIGINT, self.handler)  
 
