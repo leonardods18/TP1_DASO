@@ -1,1 +1,1 @@
-D:\MAESTRIA\desarrollo de aplicaciones\rpi\TP1_Del_Sancio\valores.csv
+TP1 de Desarrollo de aplicaciones 10ma cohorte
