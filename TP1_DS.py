@@ -19,7 +19,7 @@ class leer_archivo:
                 
         with open(ubicacion,"r",encoding="utf-8") as f:  #leo el archivo .csv y buardo en datos[]
             lineas = f.read().splitlines()
-            lineas.pop(0)    
+            lineas.pop(0)    # salteo la primera fila de los nombres
             for l in lineas:
                 linea = l.split(',')
                 self.datos.append(linea[1])
@@ -31,19 +31,18 @@ class leer_archivo:
 class Armo_json:        # con los datos[] armo el json en self.data
     def armo_json(self,datos):  
         print("creo json") 
-        self.data = {} 
-        self.data['Moneda'] = []
-        self.data['Moneda'].append({
+        self.data = []       
+        self.data.append({
             "id": 1,
             "value1": datos[1],
             "value2": datos[2],
             "name": datos[0]})
-        self.data['Moneda'].append({
+        self.data.append({
             "id": 2,
             "value1": datos[4],
             "value2": datos[5],
             "name": datos[3]})
-        self.data['Moneda'].append({
+        self.data.append({
             "id": 3,
             "value1": datos[7],
             "value2": datos[8],
