@@ -22,8 +22,9 @@ class leer_archivo:
             lineas.pop(0)    
             for l in lineas:
                 linea = l.split(',')
+                self.datos.append(linea[1])
                 self.datos.append(float(linea[2]))
-                self.datos.append(float(linea[3]))
+                self.datos.append(float(linea[3]))        
         return self.datos
         
 
@@ -34,20 +35,20 @@ class Armo_json:        # con los datos[] armo el json en self.data
         self.data['Moneda'] = []
         self.data['Moneda'].append({
             "id": 1,
-            "value1": datos[0],
-            "value2": datos[1],
-            "name": "Dolar"})
+            "value1": datos[1],
+            "value2": datos[2],
+            "name": datos[0]})
         self.data['Moneda'].append({
             "id": 2,
-            "value1": datos[2],
-            "value2": datos[3],
-            "name": "Euro"})
-        self.data['Moneda'].append({
-            "id": 3,
             "value1": datos[4],
             "value2": datos[5],
-            "name": "Real"})
-        with open('data.json', 'w') as file:
+            "name": datos[3]})
+        self.data['Moneda'].append({
+            "id": 3,
+            "value1": datos[7],
+            "value2": datos[8],
+            "name": datos[6]})
+        with open('data.json', 'w',encoding="utf-8") as file:
             json.dump(self.data, file, indent=4) 
         return self.data
 
