@@ -1,2 +1,1 @@
-TP1 de Desarrollo de aplicaciones 10ma cohorte
-Del Sancio Leonardo
+d:/MAESTRIA/desarrollo de aplicaciones/TP1_Del_Sancio/TP1_Del_Sancio/valores.csv
