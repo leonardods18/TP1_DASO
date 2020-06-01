@@ -47,7 +47,8 @@ class Armo_json:
         with open('data.json', 'w') as file:
             json.dump(self.data, file, indent=4) 
         return self.data
-#data = json.loads(open('data.json').read())
+
+
 class Main:
 
     def __init__(self):
@@ -80,7 +81,7 @@ class Main:
 i=0
 P=Main()
 
-while i<=5:     #envìo cada 3 segundos solo 4 veces para prueba
+while i<=5:     #envìo cada 5 segundos solo 5 veces para prueba
     P.main()
     time.sleep(5)
     i+=1
