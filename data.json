@@ -1,0 +1,22 @@
+{
+    "Moneda": [
+        {
+            "id": 1,
+            "value1": 58.63,
+            "value2": 61.61,
+            "name": "Dolar"
+        },
+        {
+            "id": 2,
+            "value1": 65.12,
+            "value2": 68.93,
+            "name": "Euro"
+        },
+        {
+            "id": 3,
+            "value1": 13.45,
+            "value2": 14.27,
+            "name": "Real"
+        }
+    ]
+}
