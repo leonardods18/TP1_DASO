@@ -14,10 +14,10 @@ class leer_archivo:
         print("leo archivo.csv")        
        
         with open("README.txt","r",encoding="utf-8") as u:  #busco la ubicacion del archivo readme.txt
-            ubicacion = u.read()            
-            print(ubicacion)           
+            ubicacion = u.read()                        
                 
         with open(ubicacion,"r",encoding="utf-8") as f:  #leo el archivo .csv y buardo en datos[]
+        #with open('valores.csv',"r",encoding="utf-8") as f:  #leo el archivo .csv y buardo en datos[]
             lineas = f.read().splitlines()
             lineas.pop(0)    # salteo la primera fila de los nombres
             for l in lineas:
@@ -68,7 +68,7 @@ class Main:
     def main(self):
 
         host = "localhost"
-        port = 10000     
+        port = 20000     
         
         signal.signal(signal.SIGINT, self.handler)  
 
@@ -80,10 +80,13 @@ class Main:
         print(json_data)
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
         sock.sendto(json.dumps(json_data).encode('utf-8'), ("localhost", port))
+
+        respuesta, addr = sock.recvfrom(1024) # espero la respuesta y la imprimo
+        print("received message: %s" % respuesta)
 i=0
 P=Main()
 
-while i<=5:     #envìo cada 5 segundos solo 5 veces para prueba
-    P.main()
-    time.sleep(5)
+while i<=50:     #envìo cada 10 segundos solo 50 veces para prueba
+    P.main()     #sale del while con la señal contro+C
+    time.sleep(10)
     i+=1
