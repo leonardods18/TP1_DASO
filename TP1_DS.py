@@ -8,13 +8,16 @@ import traceback
 class leer_archivo:
     def __init__(self): 
         self.datos = []
+        
     
     def updatearchivo(self):           
         print("leo archivo.csv")        
-        #with open("README.txt","r",encoding="utf-8") as o:
-        #ubicacion = o.readline()            
-        #print(ubicacion)
-        with open("valores.csv","r",encoding="utf-8") as f:
+       
+        with open("README.txt","r",encoding="utf-8") as u:  #busco la ubicacion del archivo readme.txt
+            ubicacion = u.read()            
+            print(ubicacion)           
+                
+        with open(ubicacion,"r",encoding="utf-8") as f:  #leo el archivo .csv y buardo en datos[]
             lineas = f.read().splitlines()
             lineas.pop(0)    
             for l in lineas:
@@ -24,7 +27,7 @@ class leer_archivo:
         return self.datos
         
 
-class Armo_json:        
+class Armo_json:        # con los datos[] armo el json en self.data
     def armo_json(self,datos):  
         print("creo json") 
         self.data = {} 
@@ -48,17 +51,16 @@ class Armo_json:
             json.dump(self.data, file, indent=4) 
         return self.data
 
-
 class Main:
 
     def __init__(self):
             pass
 
-    def print_msg(self):
+    def print_msg(self):   #imprimo si llega señal
         print("Hasta luego...")
         exit(1)
 
-    def handler(self,sig, frame):  # define the handler  
+    def handler(self,sig, frame):  # señal
         print("Signal Number:", sig, " Frame: ", frame)  
         traceback.print_stack(frame)	
         self.print_msg()
@@ -68,7 +70,7 @@ class Main:
         host = "localhost"
         port = 10000     
         
-        signal.signal(signal.SIGINT, self.handler)
+        signal.signal(signal.SIGINT, self.handler)  
 
         self.archivo = leer_archivo()
         datoArchivo = self.archivo.updatearchivo()
